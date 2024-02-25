@@ -1,18 +1,24 @@
 export const state = {
-  countries: [],
+  countries: {},
 };
 console.log(state);
-const updateState = function (countryData) {
-  // Push the country data to the countries array in the state
-  state.countries.push(countryData);
+export const getJSON = async function (url) {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error("API IS NOT OKAY");
+    return data;
+  } catch (err) {
+    throw err;
+  }
 };
 
-const getApiData = async function () {
+export const loadCountries = async function (id) {
   try {
     const data = await fetch("https://restcountries.com/v3.1/all");
-    if (!data.ok) {
-      throw new Error("Network response was not ok");
-    }
+    state.countries;
+
     const response = await data.json();
     console.log(response);
     return response;
@@ -20,10 +26,5 @@ const getApiData = async function () {
     console.error(err);
   }
 };
-getApiData()
-  .then((countryData) => {
-    updateState(countryData);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+
+getJSON("https://restcountries.com/v3.1/all");
