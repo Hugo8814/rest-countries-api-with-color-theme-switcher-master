@@ -16,15 +16,21 @@ export const getJSON = async function (url) {
 
 export const loadCountries = async function (id) {
   try {
-    const data = await fetch("https://restcountries.com/v3.1/all");
-    state.countries;
-
-    const response = await data.json();
-    console.log(response);
-    return response;
+    const data = await getJSON("https://restcountries.com/v3.1/all");
+    console.log(data);
+    state.countries = data.data;
+    return {
+      modfel: recipe.id,
+      title: recipe.title,
+      publisher: recipe.publisher,
+      sourceUrl: recipe.source_url,
+      image: recipe.image_url,
+      servings: recipe.servings,
+      cookingTime: recipe.cooking_time,
+      ingredients: recipe.ingredients,
+    };
   } catch (err) {
     console.error(err);
   }
 };
-
-getJSON("https://restcountries.com/v3.1/all");
+loadCountries();
