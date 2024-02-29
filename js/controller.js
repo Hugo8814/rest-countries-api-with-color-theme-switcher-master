@@ -20,7 +20,7 @@ const controlCountriesCard = async function () {
 const controlSearch = async function () {
   try {
     // 1) Get search query
-    const query = SeachView.getQuery();
+    const query = searchView.getQuery();
     if (!query) return;
 
     // 2) Load search results

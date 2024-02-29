@@ -1,18 +1,39 @@
-class SeachView {
-  _parentEl = document.querySelector(".search");
-  getQuery() {
-    const query = this._parentEl.querySelector("search__box").value;
-    this._clearInput();
-    return query;
+import * as model from "./model.js";
+import View from "./views/View.js";
+import cardView from "./views/cardView.js";
+import { loadCountriesData } from "./model.js";
+import searchView from "./views/searchView.js";
+
+// Define the controller function
+const controlCountriesCard = async function () {
+  try {
+    // Load countries data from the model
+    await loadCountriesData();
+
+    // Render the countries data using the view
+    cardView.render(model.state.countries);
+  } catch (error) {
+    // Handle errors
+    console.error("Error loading countries data:", error);
   }
-  _clearInput() {
-    this._parentEl.querySelector(".search__field").value = "";
+};
+const controlSearch = async function () {
+  try {
+    // 1) Get search query
+    const query = searchView.getQuery();
+    if (!query) return;
+
+    // 2) Load search results
+    await model.loadSearchResults(query);
+  } catch (err) {
+    console.error(err);
   }
-  addHandlerSearch(handler) {
-    this._parentEl.addEventListener("sumbit", function (e) {
-      e.preventDefault();
-      handler();
-    });
-  }
-}
-export default new SearchView();
+};
+
+// Call the controller function to start the application
+const init = function () {
+  controlCountriesCard();
+
+  controlSearch();
+};
+init();
