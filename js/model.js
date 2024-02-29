@@ -1,5 +1,9 @@
 export const state = {
   countries: {},
+  search: {
+    query: "",
+    results: [],
+  },
 };
 
 export const getJSON = async function (url) {
@@ -32,7 +36,9 @@ const createCountriesObject = function (data) {
 
 export const loadCountriesData = async function () {
   try {
-    const data = await getJSON("https://restcountries.com/v3.1/name/ireland");
+    //const data = await getJSON("https://restcountries.com/v3.1/name/ireland");
+    const data = await getJSON("https://restcountries.com/v3.1/all");
+
     console.log(data);
 
     state.countries = createCountriesObject(data);
@@ -40,4 +46,11 @@ export const loadCountriesData = async function () {
   } catch (err) {
     console.error(err);
   }
+};
+
+export const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+    const data = await getJSON;
+  } catch (error) {}
 };

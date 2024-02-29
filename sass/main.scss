@@ -23,7 +23,7 @@ html {
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: var(--very-dark-blue-dark);
   padding: 0 10rem 0 10rem;
 }
@@ -140,17 +140,54 @@ svg {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 4rem;
+  grid-gap: 10rem;
+  padding: 5rem;
+
   &__card {
-    height: 30rem;
-    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--dark-blue);
+
+    &__flag {
+      width: 100%;
+      height: 20rem;
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
     &__title {
+      font-size: 3rem;
+      font-weight: 700;
+      padding: 2rem;
     }
     &__pop {
+      font-size: 1.5rem;
+      margin-left: 2rem;
+      margin-bottom: 0.6rem;
+      &-font {
+        color: var(--dark-gray);
+      }
     }
     &__region {
+      font-size: 1.5rem;
+      margin-left: 2rem;
+      margin-bottom: 0.6rem;
+      &-font {
+        color: var(--dark-gray);
+      }
     }
     &__capital {
+      font-size: 1.5rem;
+      margin-left: 2rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 4rem;
+      &-font {
+        color: var(--dark-gray);
+      }
     }
   }
 }
