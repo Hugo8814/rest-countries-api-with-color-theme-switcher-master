@@ -1,7 +1,7 @@
 export const state = {
   countries: {},
 };
-console.log(state);
+
 export const getJSON = async function (url) {
   try {
     const res = await fetch(url);
@@ -14,23 +14,30 @@ export const getJSON = async function (url) {
   }
 };
 
-export const loadCountries = async function (id) {
+const createCountriesObject = function (data) {
+  return data.map((country) => ({
+    flag: country.flags.png,
+    name: country.name.common,
+    nativeName: country.name.common,
+    population: country.population,
+    region: country.region,
+    subRegion: country.subregion,
+    capital: country.capital,
+    tld: country.tld,
+    currencies: country.currencies,
+    languages: country.languages,
+    borderCountries: country.borders,
+  }));
+};
+
+export const loadCountries = async function () {
   try {
     const data = await getJSON("https://restcountries.com/v3.1/all");
     console.log(data);
-    state.countries = data.data;
-    return {
-      modfel: recipe.id,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      sourceUrl: recipe.source_url,
-      image: recipe.image_url,
-      servings: recipe.servings,
-      cookingTime: recipe.cooking_time,
-      ingredients: recipe.ingredients,
-    };
+
+    state.countries = createCountriesObject(data);
+    console.log(state.countries);
   } catch (err) {
     console.error(err);
   }
 };
-loadCountries();
