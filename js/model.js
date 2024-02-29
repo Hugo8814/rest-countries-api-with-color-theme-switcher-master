@@ -30,9 +30,9 @@ const createCountriesObject = function (data) {
   }));
 };
 
-export const loadCountries = async function () {
+export const loadCountriesData = async function () {
   try {
-    const data = await getJSON("https://restcountries.com/v3.1/all");
+    const data = await getJSON("https://restcountries.com/v3.1/name/ireland");
     console.log(data);
 
     state.countries = createCountriesObject(data);
