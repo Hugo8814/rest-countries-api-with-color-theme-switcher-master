@@ -8,6 +8,7 @@ import searchView from "./views/searchView.js";
 const controlCountriesCard = async function () {
   try {
     // Load countries data from the model
+
     await loadCountriesData();
 
     // Render the countries data using the view
@@ -17,14 +18,22 @@ const controlCountriesCard = async function () {
     console.error("Error loading countries data:", error);
   }
 };
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 const controlSearch = async function () {
   try {
     // 1) Get search query
-    const query = searchView.getQuery();
+    const query = this._parentEl.querySelector(".search__box").value;
+    //const query = searchView.getQuery();
     if (!query) return;
+    console.log(query);
 
     // 2) Load search results
     await model.loadSearchResults(query);
+
+    // 3 render the cards
+    searchView.render(model.state.countries.name);
   } catch (err) {
     console.error(err);
   }
@@ -32,7 +41,7 @@ const controlSearch = async function () {
 
 // Call the controller function to start the application
 const init = function () {
-  controlCountriesCard();
-  controlSearch();
+  //cardView.addHandlerRender(controlCountriesCard);
+  searchView.addHandlerSearch(controlSearch);
 };
 init();

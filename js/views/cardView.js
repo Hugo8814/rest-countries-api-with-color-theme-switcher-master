@@ -9,6 +9,12 @@ class CardView extends View {
     return numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((ev) =>
+      window.addEventListener(ev, handler)
+    );
+  }
+
   generateMarkup() {
     return this._data
       .map(
