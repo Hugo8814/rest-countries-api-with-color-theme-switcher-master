@@ -65,6 +65,11 @@ svg {
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem; }
+    .search__bg__btn {
+      background-color: var(--dark-blue);
+      border: none; }
+    .search__bg svg {
+      background-color: var(--dark-blue); }
   .search__box {
     background-color: var(--dark-blue);
     font-size: 1.6rem;

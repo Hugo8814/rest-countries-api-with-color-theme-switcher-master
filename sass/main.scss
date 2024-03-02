@@ -72,6 +72,13 @@ svg {
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
+    &__btn {
+      background-color: var(--dark-blue);
+      border: none;
+    }
+    & svg {
+      background-color: var(--dark-blue);
+    }
   }
 
   &__box {

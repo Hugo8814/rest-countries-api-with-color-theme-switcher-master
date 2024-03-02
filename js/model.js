@@ -54,15 +54,8 @@ export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
     const data = await getJSON(`https://restcountries.com/v3.1/name/${query}`);
-    console.log(data);
-    state.search.results = data.map((con) => {
-      return {
-        flag: con.flags.png,
-        name: con.name.common,
-        population: con.population,
-        region: con.region,
-      };
-    });
+
+    state.countries = createCountriesObject(data);
   } catch (error) {
     console.error(`${err} 💥💥💥💥`);
   }

@@ -24,9 +24,7 @@ export default class View {
     const markup = `
       <div class="error">
         <div>
-          <svg>
-            <use href="${icons}#icon-alert-triangle"></use>
-          </svg>
+          ERROR
         </div>
         <p>${message}</p>
       </div>

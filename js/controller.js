@@ -24,16 +24,15 @@ const controlCountriesCard = async function () {
 const controlSearch = async function () {
   try {
     // 1) Get search query
-    const query = this._parentEl.querySelector(".search__box").value;
-    //const query = searchView.getQuery();
+
+    const query = searchView.getQuery();
     if (!query) return;
-    console.log(query);
 
     // 2) Load search results
     await model.loadSearchResults(query);
 
     // 3 render the cards
-    searchView.render(model.state.countries.name);
+    cardView.render(model.state.countries);
   } catch (err) {
     console.error(err);
   }
