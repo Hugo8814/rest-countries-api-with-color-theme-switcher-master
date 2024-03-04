@@ -41,7 +41,7 @@ const controlSearch = async function () {
 
 // Call the controller function to start the application
 const init = function () {
-  //cardView.addHandlerRender(controlCountriesCard);
+  cardView.addHandlerRender(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
 };
 init();
