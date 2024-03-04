@@ -85,7 +85,8 @@ svg {
   .search__sort {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    position: relative; }
     .search__sort-filter {
       font-family: "Nunito Sans";
       margin-bottom: 0.7rem;
@@ -103,20 +104,27 @@ svg {
         margin-left: 3.5rem; }
       .search__sort-filter:focus {
         outline: none; }
-    .search__sort-option {
-      font-family: "Nunito Sans";
-      background-color: var(--dark-blue);
-      color: #c3c2c2;
-      border: none;
-      padding: 0.6rem;
-      padding-left: 1.5rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      text-align: start; }
-      .search__sort-option-border-top {
-        border-radius: 0.5rem 0.5rem 0rem 0rem; }
-      .search__sort-option-border-bottom {
-        border-radius: 0rem 0rem 0.5rem 0.5rem; }
+    .search__sort-box {
+      margin-top: 7rem;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 10;
+      left: 0;
+      width: 100%;
+      border-radius: 0.6rem;
+      overflow: hidden; }
+      .search__sort-box-option {
+        font-family: "Nunito Sans";
+        background-color: var(--dark-blue);
+        color: #c3c2c2;
+        border: none;
+        padding: 0.6rem;
+        padding-left: 1.5rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: start;
+        height: 4rem; }
 
 .grid {
   display: grid;

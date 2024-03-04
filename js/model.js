@@ -36,10 +36,11 @@ const createCountriesObject = function (data) {
   }));
 };
 
-export const loadCountriesData = async function () {
+const API = "https://restcountries.com/v3.1/";
+export const loadCountriesData = async function (section, region) {
   try {
     //const data = await getJSON("https://restcountries.com/v3.1/name/ireland");
-    const data = await getJSON("https://restcountries.com/v3.1/all");
+    const data = await getJSON(`${API}${section}/${region}`);
 
     console.log(data);
 
@@ -49,15 +50,14 @@ export const loadCountriesData = async function () {
     console.error(err);
   }
 };
+/// this code got refactored but im leave here if i need it
+// export const loadSearchResults = async function (query) {
+//   try {
+//     state.search.query = query;
+//     const data = await getJSON(`https://restcountries.com/v3.1/name/${query}`);
 
-export const loadSearchResults = async function (query) {
-  try {
-    state.search.query = query;
-    const data = await getJSON(`https://restcountries.com/v3.1/name/${query}`);
-
-    state.countries = createCountriesObject(data);
-  } catch (error) {
-    console.error(`${err} 💥💥💥💥`);
-  }
-};
-loadSearchResults("ireland");
+//     state.countries = createCountriesObject(data);
+//   } catch (error) {
+//     console.error(`${err} 💥💥💥💥`);
+//   }
+// };

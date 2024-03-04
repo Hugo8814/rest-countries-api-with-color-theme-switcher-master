@@ -100,6 +100,7 @@ svg {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    position: relative;
 
     &-filter {
       font-family: "Nunito Sans";
@@ -123,22 +124,27 @@ svg {
         outline: none;
       }
     }
-
-    &-option {
-      font-family: "Nunito Sans";
-      background-color: var(--dark-blue);
-      color: rgb(195, 194, 194);
-      border: none;
-      padding: 0.6rem;
-      padding-left: 1.5rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      text-align: start;
-      &-border-top {
-        border-radius: 0.5rem 0.5rem 0rem 0rem;
-      }
-      &-border-bottom {
-        border-radius: 0rem 0rem 0.5rem 0.5rem;
+    &-box {
+      margin-top: 7rem;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 10;
+      left: 0;
+      width: 100%;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      &-option {
+        font-family: "Nunito Sans";
+        background-color: var(--dark-blue);
+        color: rgb(195, 194, 194);
+        border: none;
+        padding: 0.6rem;
+        padding-left: 1.5rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: start;
+        height: 4rem;
       }
     }
   }

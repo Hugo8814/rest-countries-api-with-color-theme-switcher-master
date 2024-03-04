@@ -10,7 +10,7 @@ const controlCountriesCard = async function () {
   try {
     // Load countries data from the model
 
-    await loadCountriesData();
+    await loadCountriesData("all", "");
 
     // Render the countries data using the view
     cardView.render(model.state.countries);
@@ -31,7 +31,8 @@ const controlSearch = async function () {
     if (!query) return;
 
     // 2) Load search results
-    await model.loadSearchResults(query);
+    await loadCountriesData("name", query);
+    // await model.loadSearchResults(query);
 
     // 3 render the cards
     cardView.render(model.state.countries);
@@ -41,7 +42,6 @@ const controlSearch = async function () {
 };
 
 const controlFilter = async function () {
-  console.log("something");
   fliterView.toggleHidden();
 };
 
@@ -50,5 +50,6 @@ const init = function () {
   cardView.addHandlerRender(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
   fliterView.addHandlerfilter(controlFilter);
+  fliterView.addHandlerOption(controlFilter);
 };
 init();
