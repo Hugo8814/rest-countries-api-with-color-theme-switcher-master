@@ -3,6 +3,7 @@ import View from "./views/View.js";
 import cardView from "./views/cardView.js";
 import { loadCountriesData } from "./model.js";
 import searchView from "./views/searchView.js";
+import fliterView from "./views/fliterView.js";
 
 // Define the controller function
 const controlCountriesCard = async function () {
@@ -39,9 +40,15 @@ const controlSearch = async function () {
   }
 };
 
+const controlFilter = async function () {
+  console.log("something");
+  fliterView.toggleHidden();
+};
+
 // Call the controller function to start the application
 const init = function () {
   cardView.addHandlerRender(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
+  fliterView.addHandlerfilter(controlFilter);
 };
 init();
