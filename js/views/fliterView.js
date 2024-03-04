@@ -28,15 +28,16 @@ class FilterView extends View {
     });
   }
 
-  addHandlerOption(handler) {
-    // Assuming you want to attach the handler to each button
-    this.btnOps.forEach((btn) => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        const country = btn.getAttribute("value");
-        console.log(country);
+  getOptionData() {
+    return new Promise((resolve, reject) => {
+      // Assuming you want to attach the handler to each button
+      this.btnOps.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const country = btn.getAttribute("value");
 
-        handler();
+          resolve(country); // Resolve the promise with the selected country value
+        });
       });
     });
   }

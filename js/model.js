@@ -37,6 +37,7 @@ const createCountriesObject = function (data) {
 };
 
 const API = "https://restcountries.com/v3.1/";
+
 export const loadCountriesData = async function (section, region) {
   try {
     //const data = await getJSON("https://restcountries.com/v3.1/name/ireland");

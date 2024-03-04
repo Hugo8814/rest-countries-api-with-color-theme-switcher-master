@@ -16,15 +16,21 @@ class CardView extends View {
   }
 
   generateMarkup() {
+    const formatNumberWithCommas = (number) => {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
     return this._data
       .map(
         (country) => `
-        <div class="grid__card">
+        <a  href="country-details.html?country=${
+          country.name
+        }" class="grid__card">
           <div class="grid__card__flag">
             <img src="${country.flag}" alt="flag" />
           </div>
           <div class="grid__card__title">${country.name}</div>
-          <div class="grid__card__pop">Population: <span class="grid__card__pop-font">${this._formatNumberWithCommas(
+          <div class="grid__card__pop">Population: <span class="grid__card__pop-font">${formatNumberWithCommas(
             country.population
           )}</span></div>
           <div class="grid__card__region">Region: <span class="grid__card__region-font">${
@@ -33,7 +39,7 @@ class CardView extends View {
           <div class="grid__card__capital">Capital: <span class="grid__card__capital-font">${
             country.capital
           }</span></div>
-        </div>
+        </a>
         `
       )
       .join("");
