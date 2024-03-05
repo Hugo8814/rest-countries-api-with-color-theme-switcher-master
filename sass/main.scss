@@ -234,6 +234,7 @@ svg {
     height: 5rem;
     width: 15rem;
     font-size: 2rem;
+    color: var(--white);
 
     & svg {
       margin-right: -2rem;
@@ -244,6 +245,7 @@ svg {
 .section {
   display: flex;
   flex-direction: row;
+  gap: 10rem;
 
   &__left {
     box-shadow: 5px 5px 30px rgba(#000000, 0.6);
@@ -259,11 +261,44 @@ svg {
 }
 .right {
   &__title {
+    font-size: 5rem;
   }
   &__box {
   }
   &__box-border {
     &__text {
+      font-weight: 600;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      &__countries {
+        text-align: center;
+        box-shadow: 2px 2px 3px rgba(#000000, 0.5);
+        background-color: var(--dark-blue);
+        color: var(--dark-gray);
+
+        width: 7rem;
+      }
     }
+  }
+}
+.country-card {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem 0rem;
+    flex-wrap: wrap;
+    max-height: 26rem;
+  }
+  &__detail {
+    line-height: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__value {
+    font-weight: 400;
+    color: var(--dark-gray);
   }
 }
