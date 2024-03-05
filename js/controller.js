@@ -52,11 +52,23 @@ const controlFilter = async function () {
   cardView.render(model.state.countries);
 };
 
-const controlMainCard = async function () {};
+const controlMainCard = async function () {
+  // Get the URL parameters
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  // Get the value of the 'country' parameter
+  const countryName = urlParams.get("country");
+
+  await loadCountriesData("name", countryName);
+
+  mainCardView.render(model.state.countries);
+};
 // Call the controller function to start the application
 const init = function () {
   cardView.addHandlerRender(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
   fliterView.addHandlerfilter(controlFilter);
+  mainCardView.addCardRender(controlMainCard);
 };
 init();

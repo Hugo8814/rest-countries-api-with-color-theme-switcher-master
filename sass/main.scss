@@ -19,6 +19,7 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: "Nunito Sans";
+  color: var(--very-light-gray);
 }
 
 .container {
@@ -224,7 +225,7 @@ svg {
   &__btn {
     background-color: var(--dark-blue);
     border: none;
-    box-shadow: 5px 5px 30px rgba($color: #000000, $alpha: 0.6);
+    box-shadow: 5px 5px 30px rgba(#000000, 0.6);
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
@@ -236,6 +237,33 @@ svg {
 
     & svg {
       margin-right: -2rem;
+    }
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+
+  &__left {
+    box-shadow: 5px 5px 30px rgba(#000000, 0.6);
+
+    height: 40rem;
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__right {
+  }
+}
+.right {
+  &__title {
+  }
+  &__box {
+  }
+  &__box-border {
+    &__text {
     }
   }
 }

@@ -10,9 +10,14 @@ class CardView extends View {
   }
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach((ev) =>
-      window.addEventListener(ev, handler)
-    );
+    ["hashchange", "load"].forEach((ev) => {
+      window.addEventListener(ev, () => {
+        if (document.querySelector(".grid")) {
+          // Check if target element exists
+          handler(); // Call the handler only if the target element exists
+        }
+      });
+    });
   }
 
   generateMarkup() {

@@ -22,10 +22,13 @@ class FilterView extends View {
     });
   }
   addHandlerfilter(handler) {
-    this._parentElement.addEventListener("click", function (e) {
-      e.preventDefault();
-      handler();
-    });
+    if (document.querySelector(".search"))
+      this._parentElement.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Check if target element exists
+        handler(); // Call the handler only if the target element exists
+      });
   }
 
   getOptionData() {

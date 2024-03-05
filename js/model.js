@@ -24,7 +24,9 @@ const createCountriesObject = function (data) {
   return data.map((country) => ({
     flag: country.flags.png,
     name: country.name.common,
-    nativeName: country.name.common,
+    nativeName: country.name.nativeName
+      ? country.name.nativeName[Object.keys(country.name.nativeName)[0]].common
+      : "", // Accessing the first common native name
     population: country.population,
     region: country.region,
     subRegion: country.subregion,
