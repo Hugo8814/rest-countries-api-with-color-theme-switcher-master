@@ -5,6 +5,7 @@ import { loadCountriesData } from "./model.js";
 import searchView from "./views/searchView.js";
 import fliterView from "./views/fliterView.js";
 import mainCardView from "./views/mainCardView.js";
+import { initializeThemeToggle } from "./views/theme.js";
 
 // Define the controller function
 const controlCountriesCard = async function () {
@@ -66,7 +67,8 @@ const controlMainCard = async function () {
 };
 // Call the controller function to start the application
 const init = function () {
-  cardView.addHandler(controlCountriesCard);
+  initializeThemeToggle();
+  cardView.addHandlerRender(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
   fliterView.addHandlerfilter(controlFilter);
   mainCardView.addCardRender(controlMainCard);

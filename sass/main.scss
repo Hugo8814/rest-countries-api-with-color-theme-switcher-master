@@ -2,12 +2,19 @@
   --dark-blue: hsl(209, 23%, 22%);
   --very-dark-blue-dark: hsl(207, 26%, 17%);
   --very-dark-blue-light: hsl(200, 15%, 8%);
-
   --dark-gray: hsl(0, 0%, 52%);
   --very-light-gray: hsl(0, 0%, 98%);
   --white: hsl(0, 0%, 100%);
 }
 
+.light-mode {
+  --very-dark-blue-dark: hsl(210, 30%, 90%);
+  --dark-blue: hsl(0, 0%, 100%);
+  --very-dark-blue-light: hsl(0, 0%, 90%);
+  --dark-gray: hsl(0, 0%, 40%);
+  --very-light-gray: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 0%);
+}
 *,
 *::before,
 *::after {
@@ -23,17 +30,12 @@ html {
   color: var(--very-light-gray);
 }
 
-.container {
+.container,
+.container__2 {
   width: 100%;
   min-height: 100vh;
   background-color: var(--very-dark-blue-dark);
-  padding: 0 10rem 0 10rem;
-  &__2 {
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--very-dark-blue-dark);
-    padding: 0 10rem 0 10rem;
-  }
+  padding: 0 10rem;
 }
 
 .navbar {
@@ -41,27 +43,31 @@ html {
   width: 100%;
   height: 8rem;
   display: flex;
-  justify-content: center;
   justify-content: space-between;
-  padding: 0 10rem 0 10rem;
+  padding: 0 10rem;
   align-items: center;
+
   &__title {
     color: var(--white);
     font-size: 3rem;
     font-weight: 500;
   }
+
   &__theme {
     color: var(--white);
     font-size: 2rem;
     font-weight: 700;
     display: flex;
+    cursor: pointer;
   }
 }
+
 svg {
   width: 4rem;
   height: 2.5rem;
   fill: var(--white);
 }
+
 .hidden {
   opacity: 0;
   position: absolute;
@@ -73,6 +79,7 @@ svg {
   align-items: start;
   justify-content: space-between;
   padding-top: 5rem;
+
   &__bg {
     background-color: var(--dark-blue);
     display: flex;
@@ -80,10 +87,12 @@ svg {
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
+
     &__btn {
       background-color: var(--dark-blue);
       border: none;
     }
+
     & svg {
       background-color: var(--dark-blue);
     }
@@ -97,17 +106,19 @@ svg {
     color: var(--very-light-gray);
     height: 4rem;
     width: 40rem;
+
     &::placeholder {
       color: var(--dark-gray);
     }
+
     &:focus {
       outline: none;
     }
   }
+
   &__sort {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     position: relative;
 
     &-filter {
@@ -117,11 +128,11 @@ svg {
       border-radius: 0.5rem;
       border: none;
       height: 6rem;
-
       color: rgb(195, 194, 194);
       font-size: 1.6rem;
       font-weight: 600;
       padding: 2rem;
+
       & svg {
         height: 1.1rem;
         width: 2rem;
@@ -132,6 +143,7 @@ svg {
         outline: none;
       }
     }
+
     &-box {
       margin-top: 7rem;
       display: flex;
@@ -142,13 +154,13 @@ svg {
       width: 100%;
       border-radius: 0.6rem;
       overflow: hidden;
+
       &-option {
         font-family: "Nunito Sans";
         background-color: var(--dark-blue);
         color: rgb(195, 194, 194);
         border: none;
-        padding: 0.6rem;
-        padding-left: 1.5rem;
+        padding: 0.6rem 1.5rem;
         font-size: 1.6rem;
         font-weight: 600;
         text-align: start;
@@ -160,7 +172,8 @@ svg {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-rows: auto;
   grid-gap: 10rem;
   padding: 5rem;
 
@@ -187,36 +200,26 @@ svg {
       font-weight: 700;
       padding: 2rem;
     }
-    &__pop {
-      font-size: 1.5rem;
-      margin-left: 2rem;
-      margin-bottom: 0.6rem;
-      &-font {
-        color: var(--dark-gray);
-      }
-    }
-    &__region {
-      font-size: 1.5rem;
-      margin-left: 2rem;
-      margin-bottom: 0.6rem;
-      &-font {
-        color: var(--dark-gray);
-      }
-    }
+
+    &__pop,
+    &__region,
     &__capital {
       font-size: 1.5rem;
       margin-left: 2rem;
       margin-bottom: 0.6rem;
-      padding-bottom: 4rem;
+
       &-font {
         color: var(--dark-gray);
       }
     }
+
+    &__capital {
+      padding-bottom: 4rem;
+    }
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////
-/// html 2
 
+/* Additional styles for HTML 2 */
 .back {
   height: 20rem;
   display: flex;
@@ -226,7 +229,7 @@ svg {
   &__btn {
     background-color: var(--dark-blue);
     border: none;
-    box-shadow: 5px 5px 30px rgba(#000000, 0.6);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
@@ -249,15 +252,16 @@ svg {
   gap: 10rem;
 
   &__left {
-    box-shadow: 5px 5px 30px rgba(#000000, 0.6);
-
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
     height: 40rem;
+
     & img {
       height: 100%;
       width: 100%;
     }
   }
 }
+
 .right {
   &__title {
     font-size: 5rem;
@@ -270,31 +274,34 @@ svg {
       display: flex;
       align-items: center;
       gap: 2rem;
+
       &__countries {
         text-align: center;
-        box-shadow: 2px 2px 3px rgba(#000000, 0.5);
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
         background-color: var(--dark-blue);
         color: var(--dark-gray);
-
         width: 7rem;
       }
     }
   }
 }
+
 .country-card {
   &__info {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 5rem 0rem;
+    padding: 5rem 0;
     flex-wrap: wrap;
     max-height: 26rem;
   }
+
   &__detail {
     line-height: 2rem;
     font-size: 2rem;
     font-weight: 600;
   }
+
   &__value {
     font-weight: 400;
     color: var(--dark-gray);
