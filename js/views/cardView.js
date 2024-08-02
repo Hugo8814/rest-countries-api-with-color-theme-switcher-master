@@ -1,6 +1,6 @@
 import View from "./View.js";
 
-class CardView extends View {
+class cardView extends View {
   _formatNumberWithCommas(number) {
     // Convert number to string
     let numberString = number.toString();
@@ -56,4 +56,4 @@ class CardView extends View {
   }
 }
 
-export default new CardView();
+export default new cardView();

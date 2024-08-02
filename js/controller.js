@@ -66,7 +66,8 @@ const controlMainCard = async function () {
 };
 // Call the controller function to start the application
 const init = function () {
-  cardView.addHandlerRender(controlCountriesCard);
+  debugger;
+  cardView.addHandler(controlCountriesCard);
   searchView.addHandlerSearch(controlSearch);
   fliterView.addHandlerfilter(controlFilter);
   mainCardView.addCardRender(controlMainCard);
