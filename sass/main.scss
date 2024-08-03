@@ -8,7 +8,7 @@
 }
 
 .light-mode {
-  --very-dark-blue-dark: hsl(210, 30%, 90%);
+  --very-dark-blue-dark: hsl(0, 0%, 94%);
   --dark-blue: hsl(0, 0%, 100%);
   --very-dark-blue-light: hsl(0, 0%, 90%);
   --dark-gray: hsl(0, 0%, 40%);
@@ -128,7 +128,7 @@ svg {
       border-radius: 0.5rem;
       border: none;
       height: 6rem;
-      color: rgb(195, 194, 194);
+      color: var(--white);
       font-size: 1.6rem;
       font-weight: 600;
       padding: 2rem;
@@ -158,7 +158,7 @@ svg {
       &-option {
         font-family: "Nunito Sans";
         background-color: var(--dark-blue);
-        color: rgb(195, 194, 194);
+        color: var(--white);
         border: none;
         padding: 0.6rem 1.5rem;
         font-size: 1.6rem;
@@ -199,6 +199,7 @@ svg {
       font-size: 3rem;
       font-weight: 700;
       padding: 2rem;
+      color: var(--white);
     }
 
     &__pop,
@@ -207,9 +208,10 @@ svg {
       font-size: 1.5rem;
       margin-left: 2rem;
       margin-bottom: 0.6rem;
+      color: var(--white);
 
       &-font {
-        color: var(--dark-gray);
+        color: var(--white);
       }
     }
 
@@ -279,7 +281,7 @@ svg {
         text-align: center;
         box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
         background-color: var(--dark-blue);
-        color: var(--dark-gray);
+        color: var(--white);
         width: 7rem;
       }
     }
@@ -300,10 +302,11 @@ svg {
     line-height: 2rem;
     font-size: 2rem;
     font-weight: 600;
+    color: var(--white);
   }
 
   &__value {
     font-weight: 400;
-    color: var(--dark-gray);
+    color: var(--white);
   }
 }
