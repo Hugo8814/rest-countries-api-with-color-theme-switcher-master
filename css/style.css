@@ -87,7 +87,7 @@ svg {
     border-radius: 0.5rem;
     color: var(--very-light-gray);
     height: 4rem;
-    width: 40rem; }
+    width: 20vw; }
     .search__box::placeholder {
       color: var(--dark-gray); }
     .search__box:focus {
