@@ -29,6 +29,35 @@ html {
   font-family: "Nunito Sans";
   color: var(--very-light-gray);
 }
+@media (max-width: 700px) {
+  html {
+    font-size: 56.25%; /* 9px */
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 50%; /* 8px */
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 43.75%; /* 7px */
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 37.5%; /* 6px */
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 34.375%; /* 5.5px */
+  }
+}
 
 .container,
 .container__2 {
@@ -132,6 +161,7 @@ svg {
       font-size: 1.6rem;
       font-weight: 600;
       padding: 2rem;
+      width: 100%;
 
       & svg {
         height: 1.1rem;
@@ -172,9 +202,9 @@ svg {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(29rem, 29rem));
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 29rem));
   grid-template-rows: auto;
-  grid-gap: 10rem;
+  grid-gap: 5rem;
   padding: 5rem;
   justify-content: space-evenly;
 
@@ -253,39 +283,90 @@ svg {
   display: flex;
   flex-direction: row;
   gap: 10rem;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes full width */
 
   &__left {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
-    height: 40rem;
+    width: 50%; /* Take up half of the container width */
+    height: auto;
 
     & img {
-      height: 100%;
-      width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      width: 100%; /* Fill the parent container */
+    }
+  }
+
+  .right {
+    width: 50%; /* Take up the other half of the container */
+
+    &__title {
+      font-size: 5rem;
+    }
+
+    &__box-border {
+      &__text {
+        font-weight: 600;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        &__countries {
+          text-align: center;
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+          background-color: var(--dark-blue);
+          color: var(--white);
+          width: 7rem;
+        }
+      }
     }
   }
 }
 
-.right {
-  &__title {
-    font-size: 5rem;
+/* Media Queries for Responsiveness */
+
+/* For screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .section {
+    gap: 5rem; /* Reduce gap between sections */
   }
 
-  &__box-border {
-    &__text {
-      font-weight: 600;
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+  .right__title {
+    font-size: 4rem; /* Slightly reduce title size */
+  }
+}
 
-      &__countries {
-        text-align: center;
-        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-        background-color: var(--dark-blue);
-        color: var(--white);
-        width: 7rem;
-      }
-    }
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column; /* Stack the image and text vertically */
+    gap: 3rem; /* Further reduce the gap */
+  }
+
+  .section__left,
+  .right {
+    width: 100%; /* Make both sections full-width */
+  }
+
+  .right__title {
+    font-size: 3.5rem; /* Further reduce title size */
+  }
+}
+
+/* For screens smaller than 500px */
+@media (max-width: 500px) {
+  .right__title {
+    font-size: 3rem; /* Reduce title size for small screens */
+  }
+
+  .right__box-border__text {
+    font-size: 1.8rem; /* Reduce text size */
+    gap: 1.5rem; /* Reduce gap between elements */
+  }
+
+  .right__box-border__text__countries {
+    width: 6rem; /* Reduce box width */
   }
 }
 
@@ -309,5 +390,17 @@ svg {
   &__value {
     font-weight: 400;
     color: var(--white);
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 3rem;
+  }
+  .container {
+    padding: 0 3rem;
+  }
+  .grid {
+    padding: 3rem 0;
   }
 }
