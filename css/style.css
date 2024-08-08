@@ -221,21 +221,21 @@ svg {
   display: flex;
   flex-direction: row;
   gap: 10rem;
-  flex-wrap: wrap;
   width: 100%;
   /* Ensure it takes full width */ }
   .section__left {
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
     width: 50%;
     /* Take up half of the container width */
-    height: auto; }
+    height: auto;
+    /* Allow the image to scale with the text */ }
     .section__left img {
       height: auto;
       /* Maintain aspect ratio */
       width: 100%;
-      /* Fill the parent container */ }
+      /* Fill the parent container */
+      object-fit: cover; }
   .section .right {
-    width: 50%;
+    width: 100%;
     /* Take up the other half of the container */ }
     .section .right__title {
       font-size: 5rem; }
@@ -244,7 +244,8 @@ svg {
       font-size: 2rem;
       display: flex;
       align-items: center;
-      gap: 2rem; }
+      gap: 2rem;
+      flex-wrap: wrap; }
       .section .right__box-border__text__countries {
         text-align: center;
         box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
@@ -297,7 +298,8 @@ svg {
   gap: 2rem;
   padding: 5rem 0;
   flex-wrap: wrap;
-  max-height: 26rem; }
+  height: 26rem;
+  width: 100%; }
 
 .country-card__detail {
   line-height: 2rem;
